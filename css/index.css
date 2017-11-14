@@ -65,51 +65,51 @@ h1 {
 }
 
 #center {
-  background-color: rgba(255, 255, 255, 0.69);
+  background-color: rgba(255, 255, 255, 0.5);
   border: 3px solid #ffffff;
 }
 
 #red {
-  background-color: #3e181b;
+  background-color: rgba(255, 0, 0, .4);
   border: 3px solid #db1d2d;
 }
 
 #blue {
-  background-color: #18323e;
+  background-color: rgba(0, 0, 255, .4);
   border: 3px solid #1a9ddb;
 }
 
 #yellow {
-  background-color: #45391b;
+  background-color: rgba(255,255,0, .4);
   border: 3px solid #fec02d;
 }
 
 #green {
-  background-color: #193c29;
+  background-color: rgba(0, 255, 0, .4);
   border: 3px solid #20d071;
 }
 
 #red.selected {
-  background-color: red;
+  background-color: rgba(255, 0, 0,1);
   border: 5px solid #db1d2d;
 }
 
 #green.selected {
-  background-color: green;
+  background-color: rgba(0, 255, 0, 1);
   border: 5px solid #20d071;
 }
 
 #yellow.selected {
-  background-color: yellow;
+  background-color: rgba(255,255,0, 1);
   border: 5px solid #fec02d;
 }
 
 #blue.selected {
-  background-color: blue;
+  background-color: rgba(0, 0, 255, 1);
   border: 5px solid #1a9ddb;
 }
 
 #center.active {
-  background-color: rgba(255, 255, 255, .9);
+  background-color: rgba(255, 255, 255, 1);
   border: 5px solid #ffffff;
 }

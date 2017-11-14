@@ -22,7 +22,6 @@ class App {
     console.log(pattern)
     function showPattern(i){
       if (i < pattern.length){
-        active()
        setTimeout(function(){
          change(pattern[i])
        },500);
@@ -31,24 +30,21 @@ class App {
          i++;
          showPattern(i);
        },1000);
-      }
+     }else {
+       document.getElementById('center').removeAttribute('class', 'active')
+     }
     }
+
     showPattern(0)
 
     function change(element){
       document.getElementById(element).className = 'choice selected'
+      document.getElementById('center').setAttribute('class', 'active')
     }
 
     function changeBack(element){
       document.getElementById(element).className = 'choice'
     }
-
-    function active(){
-      document.getElementById('center').setAttribute('class', 'active')
-    }
-
-
-
 
     Promise.resolve().then(this.generateResponse(pattern))
 
@@ -58,7 +54,6 @@ class App {
   generateResponse(pattern){
     let int = (3000+(pattern.length * 1700))
     let response = []
-    document.getElementById('center').removeAttribute('class', 'active')
     document.addEventListener('keydown', (ev) => {
       if (response.length < pattern.length){
         response.push(ev.key)
@@ -71,6 +66,7 @@ class App {
 
   checkResponse(pattern, response) {
     let decodedPattern = []
+    
     pattern.forEach((choice) => {
       if(choice === 'red'){
         decodedPattern.push('ArrowLeft')
@@ -86,17 +82,11 @@ class App {
       }
     })
 
-    // let self = this
     if (decodedPattern.join() === response.join()){
       this.generateAnswer(pattern)
     } else {
       this.gameOver()
     }
-
-// console.log("this is the pattern",pattern)
-// console.log("this is the response",response)
-// console.log("this is the decoded pattern",decodedPattern)
-
   }
 
   gameOver(){
