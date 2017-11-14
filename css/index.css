@@ -70,6 +70,9 @@ button {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+h1 {
+  background-color: white;
+}
 
 #scores{
   text-align: right;
@@ -101,5 +104,5 @@ button {
 }
 
 .selected {
-  border: 20px solid orange; 
+  border: 20px solid orange;
 }
