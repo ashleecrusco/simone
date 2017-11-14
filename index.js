@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function onStart(){
-  const app = new App;
   document.getElementById('intro').innerHTML = ''
-  document.getElementById('board').innerHTML = `      <tr>
+  document.getElementById('board').innerHTML = `
+
+      <tr>
         <td id="empty"></td>
         <td id="green" class="choice"></td>
         <td id="empty"></td>
@@ -19,7 +20,9 @@ function onStart(){
         <td id="empty"></td>
         <td id="blue" class="choice"></td>
         <td id="empty"></td>
-          </tr>`
+      </tr>
+      `
+      const app = new App;
 }
 
 function intro(){

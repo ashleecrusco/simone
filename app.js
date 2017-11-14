@@ -15,15 +15,14 @@ class App {
 
 
   generateAnswer(pattern){
-
     let arr = ['green','red','yellow','blue']
     let index = Math.floor(Math.random() * 4)
     let choice = arr[index]
     pattern.push(choice)
     console.log(pattern)
-
     function showPattern(i){
       if (i < pattern.length){
+        active()
        setTimeout(function(){
          change(pattern[i])
        },500);
@@ -34,8 +33,8 @@ class App {
        },1000);
       }
     }
-
     showPattern(0)
+
     function change(element){
       document.getElementById(element).className = 'choice selected'
     }
@@ -43,6 +42,12 @@ class App {
     function changeBack(element){
       document.getElementById(element).className = 'choice'
     }
+
+    function active(){
+      document.getElementById('center').setAttribute('class', 'active')
+    }
+
+
 
 
     Promise.resolve().then(this.generateResponse(pattern))
@@ -53,7 +58,7 @@ class App {
   generateResponse(pattern){
     let int = (3000+(pattern.length * 1700))
     let response = []
-
+    document.getElementById('center').removeAttribute('class', 'active')
     document.addEventListener('keydown', (ev) => {
       if (response.length < pattern.length){
         response.push(ev.key)
