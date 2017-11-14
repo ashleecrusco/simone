@@ -13,46 +13,44 @@ class App {
     this.generateAnswer(pattern)
   }
 
+
   generateAnswer(pattern){
+
     let arr = ['green','red','yellow','blue']
     let index = Math.floor(Math.random() * 4)
     let choice = arr[index]
     pattern.push(choice)
+    console.log(pattern)
 
-    function log(i){
-      console.log(pattern[i]);
-      change(pattern[i])
+    function showPattern(i){
       if (i < pattern.length){
-         setTimeout(function(){
-           changeBack(pattern[i])
-           i++;
-           log(i);
-      },5000);
-     }
+       setTimeout(function(){
+         change(pattern[i])
+       },500);
+        setTimeout(function(){
+         changeBack(pattern[i])
+         i++;
+         showPattern(i);
+       },1000);
+      }
     }
 
-    log(0)
-
-    // pattern.forEach(function(element){
-    //   Promise(change)
-    //   setTimeout(change, i * 1000)
-    //   setTimeout(changeBack, i* 2000)
-    //   i++
-      function change(element){
-        document.getElementById(element).className = 'choice selected'
-      }
-
-      function changeBack(element){
-        document.getElementById(element).className = 'choice'
-      }
-    // })
-
+    showPattern(0)
     this.generateResponse(pattern)
+
+    function change(element){
+      document.getElementById(element).className = 'choice selected'
+    }
+
+    function changeBack(element){
+      document.getElementById(element).className = 'choice'
+    }
+
   }
 
 
   generateResponse(pattern){
-    let int = (3000+(pattern.length * 1000))
+    let int = (3000+(pattern.length * 1700))
     let response = []
 
     document.addEventListener('keydown', (ev) => {
