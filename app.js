@@ -36,8 +36,6 @@ class App {
     }
 
     showPattern(0)
-    this.generateResponse(pattern)
-
     function change(element){
       document.getElementById(element).className = 'choice selected'
     }
@@ -45,6 +43,9 @@ class App {
     function changeBack(element){
       document.getElementById(element).className = 'choice'
     }
+
+
+    Promise.resolve().then(this.generateResponse(pattern))
 
   }
 
