@@ -15,6 +15,7 @@ td {
   width: 33.333%;
   border: 25px solid black;
   border-radius: 45px;
+  overflow: hidden;
 }
 
 td::after {
@@ -23,12 +24,37 @@ td::after {
   margin-top: 100%;
 }
 
+.container {
+  height: 1200px;
+  width: 1200px;
+  margin: 2%;
+}
+
+.circle:before {
+  content: ' \25CF';
+  font-size: 50px;
+}
+
+#header {
+  text-align: center;
+  /*padding-bottom: 1%;*/
+  /*width: 50%;
+  height: 3%;
+  margin: 1%;*/
+}
+
+#input-box {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+}
+
 .footer {
   padding-top: : 5%;
-  background-color: rgba(152, 0, 235, 0.91);
-  width: 50%;
-  height: 5%;
-  margin: auto;
+  background-color: rgba(152, 0, 235, 0.6);
+  width: auto;
+  /*height: 3%;
+  margin: auto;*/
 }
 
 button {
@@ -59,10 +85,16 @@ h1 {
   background-color: white;
 }
 
+.large {
+  font-size: 45px;
+}
+
 #scores{
   text-align: right;
   margin: 1%;
 }
+
+/* Game Buttons */
 
 #center {
   background-color: rgba(255, 255, 255, 0.5);
@@ -89,8 +121,10 @@ h1 {
   border: 3px solid #20d071;
 }
 
+/* Game Buttons - Active */
+
 #red.selected {
-  background-color: rgba(255, 0, 0,1);
+  background-color: rgba(255, 0, 0, 1);
   border: 5px solid #db1d2d;
 }
 

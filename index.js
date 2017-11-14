@@ -26,6 +26,20 @@ function onStart(){
 }
 
 function intro(){
-  console.log('hey')
-  document.getElementById('intro').innerHTML = `<h1>AHHHHHHHHH<button onclick="onStart()"></button></h1>`
+  document.getElementById('intro').innerHTML += `<h1>AHHHHHHHHH<button onclick="onStart()"></button></h1>`
+}
+
+function checkColor(ev){
+  if(ev === 'ArrowLeft'){
+    return 'red'
+  }
+  if(ev === 'ArrowDown'){
+    return 'blue'
+  }
+  if(ev === 'ArrowRight'){
+    return 'yellow'
+  }
+  if(ev === 'ArrowUp'){
+    return 'green'
+  }
 }
