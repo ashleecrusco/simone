@@ -99,3 +99,7 @@ button {
 #green {
   background-color: green;
 }
+
+.selected {
+  border: 20px solid orange; 
+}
