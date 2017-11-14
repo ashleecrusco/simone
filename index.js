@@ -1,3 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const app = new App;
+  const start = new Start;
+  // const app = new App;
 });
