@@ -4,13 +4,20 @@
     <meta charset="utf-8">
     <title>Simone</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="container">
+      <div id="title">
+
+      </div>
     <div id="header">
 
     </div>
-      <table id="board">
+
+
+      <table id="board" class="instruction">
+
           <!-- <tr>
           <td id="empty"></td>
           <td id="green" class="choice"></td>
@@ -27,9 +34,14 @@
           <td id="empty"></td>
             </tr> -->
           </table>
+          <div id="buttons">
+            <button onclick="onStart()" id="start">START</button>
+            <button onclick="onLeader()">LEADERBOARD</button>
+            <button onclick="onConfig()">CONFIGURE</button>
+          </div>
           <!-- <div id="intro" >
-
-          </div> -->
+-->
+          </div>
 
     <!-- <div class="footer">
 
@@ -55,9 +67,6 @@
 
     <audio id="greenAudio">
     <source src="audio/button-select-4.wav" type="audio/wav"></source>
-
-    <!-- <audio id="levelUpAudio">
-    <source src="audio/select.wav" type="audio/wav"></source> -->
 
     <audio id="introAudio">
     <source src="audio/intro-pt-1.wav" type="audio/mpeg"></source>

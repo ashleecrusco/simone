@@ -1,10 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-  intro();
+  // intro();
   let introAudio = document.getElementById('introAudio');
   introAudio.play();
 });
 
+function restart() {
+  location.reload()
+}
+
 function onStart(){
+  document.getElementById('title').innerHTML = `<h1 class="large">SIMONE</h1>`
+
+  if(document.getElementById('scoreboard')){
+  document.getElementById('start').removeAttribute('onclick')
+  document.getElementById('start').setAttribute('id', 'restart')
+  document.getElementById('restart').setAttribute('onclick', restart())
+}
   document.getElementById('board').innerHTML = `
 
       <tr>
@@ -36,19 +47,18 @@ function onConfig(){
   console.log("Get Configuration")
 }
 
-function intro(){
-
-var e = document.querySelector('div.container')
-let introduction = document.createElement('div')
-introduction.innerHTML = `<button onclick="onStart()">START</button>`
-e.appendChild(introduction)
-let leader = document.createElement('div')
-leader.innerHTML = `<button onclick="onLeader()">LEADERBOARD</button>`
-e.appendChild(leader)
-let config = document.createElement('div')
-config.innerHTML = `<button onclick="onConfig()">CONFIGURE</button>`
-e.appendChild(config)
-}
+// function intro(){
+//   var e = document.querySelector('div.container')
+//   let introduction = document.createElement('div')
+//   introduction.innerHTML = `<button onclick="onStart()" id="start">START</button>`
+//   e.appendChild(introduction)
+//   let leader = document.createElement('div')
+//   leader.innerHTML = `<button onclick="onLeader()">LEADERBOARD</button>`
+//   e.appendChild(leader)
+//   let config = document.createElement('div')
+//   config.innerHTML = `<button onclick="onConfig()">CONFIGURE</button>`
+//   e.appendChild(config)
+// }
 
 function checkColor(ev){
   if(ev === 'ArrowLeft'){

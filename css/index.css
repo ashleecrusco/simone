@@ -2,6 +2,8 @@ body {
   margin: 0 auto;
   background-color: #000000;
   padding: 2%;
+  font-family:'VT323';
+  font-size: 38px;
 }
 
 table {
@@ -30,6 +32,8 @@ td::after {
   margin: auto;
 }
 
+/* input icons */
+
 .circle:before {
   content: ' \25CF';
   font-size: 50px;
@@ -40,6 +44,13 @@ td::after {
   font-size: 50px;
   color: red;
 }
+
+#buttons {
+  margin: auto;
+  text-align: center;
+}
+
+/**/
 
 #header {
   text-align: center;
@@ -56,7 +67,7 @@ td::after {
 }
 
 .footer {
-  padding-top: : 5%;
+  padding-top: : 2%;
   background-color: rgba(152, 0, 235, 0.6);
   width: auto;
   /*height: 3%;
@@ -65,18 +76,18 @@ td::after {
 
 button {
   display: inline-block;
-  padding: 10px;
-  font-size: 16px;
-  width: 80px;
+  padding: 7px;
+  margin: 7px;
+  font-size: 24px;
+  width: 120px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 9px #999;
+  border: 2px solid red;
+  box-shadow: 0 4px #999;
+  font-family:'VT323';
+  color: black;
 }
 
 .button:hover {background-color: #3e8e41}
@@ -89,10 +100,15 @@ button {
 
 h1 {
   color: white;
+  padding-bottom: 5%;
 }
 
 .large {
-  font-size: 45px;
+  margin: 3%;
+  font-size: 70px;
+  position:absolute;
+  right:60px;
+  top: -10px;
 }
 
 #scores{
@@ -150,6 +166,55 @@ h1 {
 }
 
 #center.active {
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, .5);
   border: 5px solid #ffffff;
 }
+
+.instruction {
+  background-image: url('img/instruction-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 90%;
+  height: 50%;
+}
+
+/* @group Blink */
+.blink {
+	-webkit-animation: blink 1.2s linear infinite;
+	-moz-animation: blink 1.2s linear infinite;
+	-ms-animation: blink 1.2s linear infinite;
+	-o-animation: blink 1.2s linear infinite;
+	 animation: blink 1.2s linear infinite;
+   text-shadow: 2px 2px #FF0000;
+}
+@-webkit-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-o-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+/* @end */
