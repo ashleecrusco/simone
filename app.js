@@ -4,10 +4,8 @@ class App {
   constructor(){
   this.score = 0
   this.name = ''
-
   this.addEventListeners()
   this.onStart()
-
   }
 
   addEventListeners(){
@@ -16,22 +14,25 @@ class App {
 
   onStart() {
     let pattern = []
+    let el;
     this.generateAnswer(pattern)
-    let bar = document.querySelector('div.container')
-    let el = document.createElement('div')
+    if (document.getElementById('scoreboard')){
+      el = document.getElementById('scoreboard')
+    } else {
+      let bar = document.querySelector('div.container')
+      el = document.createElement('div')
+      bar.prepend(el)
+    }
     el.id = "scoreboard"
-    el.innerHTML = `Scoreboard: ${this.score}`
+    el.innerHTML = `Score: ${this.score}`
     el.style.color = 'white'
-    bar.prepend(el)
   }
-
 
   generateAnswer(pattern){
     let arr = ['green','red','yellow','blue']
     let index = Math.floor(Math.random() * 4)
     let choice = arr[index]
     pattern.push(choice)
-    console.log(pattern)
     function showPattern(i){
       if (i < pattern.length){
        setTimeout(function(){
@@ -49,19 +50,7 @@ class App {
     }
     document.getElementById('center').setAttribute('class', 'active')
     showPattern(0)
-
-    function change(element){
-      document.getElementById(element).className = 'choice selected'
-    }
-
-    function changeBack(element){
-      document.getElementById(element).className = 'choice'
-    }
-
-
-
     Promise.resolve().then(this.generateResponse(pattern))
-
   }
 
   generateResponse(pattern){
@@ -82,16 +71,13 @@ class App {
         document.getElementById('header').innerHTML = string
       }
   })
-
   let self = this
   setTimeout(function(){ self.checkResponse(pattern,response); }, int);
   }
 
-
   checkResponse(pattern, response) {
     document.getElementById('header').innerHTML = ''
     let decodedPattern = []
-
     pattern.forEach((choice) => {
       if(choice === 'red'){
         decodedPattern.push('ArrowLeft')
@@ -108,15 +94,10 @@ class App {
     })
 
     if (decodedPattern.join() === response.join()){
-      // debugger
       this.score += 10
       let el = document.getElementById('scoreboard')
       el.innerHTML = `Scoreboard: ${this.score}`
       this.generateAnswer(pattern)
-
-      // let levelUpAudio = document.getElementById('levelUpAudio');
-      // levelUpAudio.play();
-
     } else {
       this.gameOver()
     }
@@ -127,11 +108,10 @@ class App {
 
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
-    console.log("you lose!!!")
 
     let table = document.getElementById('board')
-    this.name = prompt()
-    debugger
+    // this.name = prompt()
+
     //get initials
     //send to API
 
@@ -162,4 +142,12 @@ function play(color) {
     let greenAudio = document.getElementById('yellowAudio');
     greenAudio.play();
   }
+}
+
+function change(element){
+  document.getElementById(element).className = 'choice selected'
+}
+
+function changeBack(element){
+  document.getElementById(element).className = 'choice'
 }
