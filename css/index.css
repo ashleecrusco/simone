@@ -27,7 +27,7 @@ td::after {
 .container {
   height: 1200px;
   width: 1200px;
-  margin: 2%;
+  margin: auto;
 }
 
 .circle:before {
@@ -35,12 +35,18 @@ td::after {
   font-size: 50px;
 }
 
+.x:before {
+  content: ' \2718';
+  font-size: 50px;
+  color: red;
+}
+
 #header {
   text-align: center;
-  /*padding-bottom: 1%;*/
-  /*width: 50%;
-  height: 3%;
-  margin: 1%;*/
+  padding-bottom: 15px;
+  /*width: 50%;*/
+  height: 30px;
+  /*margin: 1%;*/
 }
 
 #input-box {

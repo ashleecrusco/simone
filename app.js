@@ -34,12 +34,11 @@ class App {
        document.getElementById('center').removeAttribute('class', 'active')
      }
     }
-
+    document.getElementById('center').setAttribute('class', 'active')
     showPattern(0)
 
     function change(element){
       document.getElementById(element).className = 'choice selected'
-      document.getElementById('center').setAttribute('class', 'active')
     }
 
     function changeBack(element){
@@ -50,7 +49,6 @@ class App {
 
   }
 
-
   generateResponse(pattern){
     let int = (3000+(pattern.length * 1700))
     let response = []
@@ -58,10 +56,15 @@ class App {
     document.addEventListener('keydown', (ev) => {
       if (response.length < pattern.length){
         let color = checkColor(ev.key)
+        ev.preventDefault()
         response.push(ev.key)
+        if (color === "x"){
+          string += `<span class='x' style='color: red;'></span>`
+        } else {
         string += `<span class='circle' style='color: ${color};'></span>`
+        }
         document.getElementById('header').innerHTML = string
-    }
+      }
   })
 
   let self = this

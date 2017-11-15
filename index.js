@@ -33,13 +33,17 @@ function checkColor(ev){
   if(ev === 'ArrowLeft'){
     return 'red'
   }
-  if(ev === 'ArrowDown'){
+  else if(ev === 'ArrowDown'){
     return 'blue'
   }
-  if(ev === 'ArrowRight'){
+  else if(ev === 'ArrowRight'){
     return 'yellow'
   }
-  if(ev === 'ArrowUp'){
+  else if(ev === 'ArrowUp'){
     return 'green'
   }
+  else {
+    return 'x'
+  }
+
 }
