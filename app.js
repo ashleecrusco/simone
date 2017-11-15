@@ -1,5 +1,5 @@
 let store = {apps: []}
-
+let id = 0
 class App {
   constructor(){
   this.score = 0
@@ -105,6 +105,7 @@ class App {
   }
 
   gameOver(){
+
     document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1>`
     
     let gameOverAudio = document.getElementById('gameOverAudio');
@@ -116,9 +117,44 @@ class App {
     //get initials
     //send to API
 
-
+    document.getElementById('header').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
+    let gameOverAudio = document.getElementById('gameOverAudio');
+    gameOverAudio.play();
+    let table = document.getElementById('board')
+    this.name = 'nick'
+    this.config = 'easy'
     store.apps.push(this)
+    this.sendData()
+  }
 
+  sendData(){
+    let data = this
+    fetch('http://localhost:3000/api/v1/apps',
+  {
+    method: 'POST',
+    // mode: 'no-cors',
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": 'application/json',
+      "Accept": 'application/json'
+    }
+  })
+  .then(res => console.log(res));
+    // this.fetchLeaderboard()
+
+  }
+
+
+
+  fetchLeaderboard(){
+    // fetch('http://localhost:3000/api/v1/apps')
+    // .then(res => res.json())
+    // .then(json => console.log(json))
+    // this.displayLeaderboard()
+  }
+
+  displayLeaderboard(){
+    //displaying the leaderboard
   }
 
 }
