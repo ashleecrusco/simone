@@ -1,8 +1,9 @@
 let store = {apps: []}
-
+let id = 0
 class App {
   constructor(){
   this.score = 0
+  this.id = ++id
   this.name = ''
 
   this.addEventListeners()
@@ -124,21 +125,25 @@ class App {
 
   gameOver(){
     document.getElementById('header').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
-
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
-    console.log("you lose!!!")
-
     let table = document.getElementById('board')
-    this.name = prompt()
-    debugger
-    //get initials
-    //send to API
-
-
+    this.name = 'nick'
     store.apps.push(this)
-
+    this.sendData()
   }
+
+  sendData(){
+    //post request to my API
+
+    this.displayLeaderboard()
+  }
+
+
+  displayLeaderboard(){
+    
+  }
+
 
 }
 
