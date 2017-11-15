@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function onStart(){
   document.getElementById('intro').innerHTML = ''
+  let table = document.createElement('table')
+  table.id = 'board'
+  let body = document.body
+  body.appendChild(table)
   document.getElementById('board').innerHTML = `
 
       <tr>
@@ -25,7 +29,31 @@ function onStart(){
       const app = new App;
 }
 
+function onLeader(){
+  console.log('Need to get data')
+}
+
+function onConfig(){
+  console.log('Need to get config options')
+}
+
+function menu(){
+  var board = document.getElementById('board')
+  board.remove()
+  // intro()
+}
+
 function intro(){
-  console.log('hey')
-  document.getElementById('intro').innerHTML = `<h1>AHHHHHHHHH<button onclick="onStart()"></button></h1>`
+
+  var e = document.body
+  let intro = document.createElement('div')
+  intro.innerHTML = `<button onclick="onStart()">START</button>`
+  e.appendChild(intro)
+  let leader = document.createElement('div')
+  leader.innerHTML = `<button onclick="onLeader()">LEADERBOARD</button>`
+  e.appendChild(leader)
+  let config = document.createElement('div')
+  config.innerHTML = `<button onclick="onConfig()">CONFIGURE</button>`
+  e.appendChild(config)
+
 }
