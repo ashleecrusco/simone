@@ -36,6 +36,7 @@ class App {
       if (i < pattern.length){
        setTimeout(function(){
          change(pattern[i])
+         play(pattern[i])
        },500);
         setTimeout(function(){
          changeBack(pattern[i])
@@ -57,6 +58,8 @@ class App {
       document.getElementById(element).className = 'choice'
     }
 
+
+
     Promise.resolve().then(this.generateResponse(pattern))
 
   }
@@ -74,6 +77,7 @@ class App {
           string += `<span class='x' style='color: red;'></span>`
         } else {
         string += `<span class='circle' style='color: ${color};'></span>`
+        play(color)
         }
         document.getElementById('header').innerHTML = string
       }
@@ -110,6 +114,9 @@ class App {
       el.innerHTML = `Scoreboard: ${this.score}`
       this.generateAnswer(pattern)
 
+      // let levelUpAudio = document.getElementById('levelUpAudio');
+      // levelUpAudio.play();
+
     } else {
       this.gameOver()
     }
@@ -117,6 +124,11 @@ class App {
 
   gameOver(){
     document.getElementById('header').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
+
+    let gameOverAudio = document.getElementById('gameOverAudio');
+    gameOverAudio.play();
+    console.log("you lose!!!")
+
     let table = document.getElementById('board')
     this.name = prompt()
     debugger
@@ -125,6 +137,29 @@ class App {
 
 
     store.apps.push(this)
+
   }
 
+}
+
+function play(color) {
+  if(color === 'red'){
+    let redAudio = document.getElementById('redAudio');
+    redAudio.play();
+  }
+
+  if(color === 'blue'){
+    let blueAudio = document.getElementById('blueAudio');
+    blueAudio.play();
+  }
+
+  if(color === 'yellow'){
+    let yellowAudio = document.getElementById('greenAudio');
+    yellowAudio.play();
+  }
+
+  if(color === 'green'){
+    let greenAudio = document.getElementById('yellowAudio');
+    greenAudio.play();
+  }
 }

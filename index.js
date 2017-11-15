@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   intro();
+  let introAudio = document.getElementById('introAudio');
+  introAudio.play();
 });
 
 function onStart(){
