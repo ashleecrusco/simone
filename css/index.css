@@ -177,3 +177,44 @@ h1 {
   width: 90%;
   height: 50%;
 }
+
+/* @group Blink */
+.blink {
+	-webkit-animation: blink 1.2s linear infinite;
+	-moz-animation: blink 1.2s linear infinite;
+	-ms-animation: blink 1.2s linear infinite;
+	-o-animation: blink 1.2s linear infinite;
+	 animation: blink 1.2s linear infinite;
+   text-shadow: 2px 2px #FF0000;
+}
+@-webkit-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-o-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+/* @end */

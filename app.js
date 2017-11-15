@@ -105,8 +105,8 @@ class App {
   }
 
   gameOver(){
-    document.getElementById('title').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
-
+    document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1>`
+    
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
 
