@@ -1,7 +1,13 @@
+let store = {apps: []}
+
 class App {
   constructor(){
+  this.score = 0
+  this.name = ''
+
   this.addEventListeners()
   this.onStart()
+
   }
 
   addEventListeners(){
@@ -11,6 +17,12 @@ class App {
   onStart() {
     let pattern = []
     this.generateAnswer(pattern)
+    let bar = document.querySelector('div.container')
+    let el = document.createElement('div')
+    el.id = "scoreboard"
+    el.innerHTML = `Scoreboard: ${this.score}`
+    el.style.color = 'white'
+    bar.prepend(el)
   }
 
 
@@ -96,9 +108,15 @@ class App {
     })
 
     if (decodedPattern.join() === response.join()){
+      // debugger
+      this.score += 10
+      let el = document.getElementById('scoreboard')
+      el.innerHTML = `Scoreboard: ${this.score}`
       this.generateAnswer(pattern)
+
       // let levelUpAudio = document.getElementById('levelUpAudio');
       // levelUpAudio.play();
+
     } else {
       this.gameOver()
     }
@@ -106,9 +124,20 @@ class App {
 
   gameOver(){
     document.getElementById('header').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
+
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
     console.log("you lose!!!")
+
+    let table = document.getElementById('board')
+    this.name = prompt()
+    debugger
+    //get initials
+    //send to API
+
+
+    store.apps.push(this)
+
   }
 
 }
