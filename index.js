@@ -2,22 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
   intro();
   let introAudio = document.getElementById('introAudio');
   introAudio.play();
-
-  fetch('http://localhost:3000/apps')
-    .then(res => res.json())
-    .then(json =>
-      json.forEach(app => {
-        const markup = `
-        <li>
-          <h3>${app.title}
-            <button>edit</button>
-          </h3>
-        </li>`;
-
-        $('#apps-list').append(markup);
-      })
-    );
-
 });
 
 function onStart(){

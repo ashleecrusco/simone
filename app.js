@@ -3,7 +3,6 @@ let id = 0
 class App {
   constructor(){
   this.score = 0
-  this.id = ++id
   this.name = ''
 
   this.addEventListeners()
@@ -129,21 +128,39 @@ class App {
     gameOverAudio.play();
     let table = document.getElementById('board')
     this.name = 'nick'
+    this.config = 'easy'
     store.apps.push(this)
     this.sendData()
   }
 
   sendData(){
-    //post request to my API
+    let data = this
+    fetch('http://localhost:3000/api/v1/apps',
+  {
+    method: 'POST',
+    // mode: 'no-cors',
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": 'application/json',
+      "Accept": 'application/json'
+    }
+  })
+  .then(res => console.log(res));
+    // this.fetchLeaderboard()
 
-    this.displayLeaderboard()
   }
 
+
+  fetchLeaderboard(){
+    // fetch('http://localhost:3000/api/v1/apps')
+    // .then(res => res.json())
+    // .then(json => console.log(json))
+    // this.displayLeaderboard()
+  }
 
   displayLeaderboard(){
-    
+    //displaying the leaderboard
   }
-
 
 }
 
