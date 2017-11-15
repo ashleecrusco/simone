@@ -107,20 +107,12 @@ class App {
   gameOver(){
 
     document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1>`
-    
+
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
 
     let table = document.getElementById('board')
-    // this.name = prompt()
 
-    //get initials
-    //send to API
-
-    document.getElementById('header').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
-    let gameOverAudio = document.getElementById('gameOverAudio');
-    gameOverAudio.play();
-    let table = document.getElementById('board')
     this.name = 'nick'
     this.config = 'easy'
     store.apps.push(this)
