@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function onStart(){
-  // document.getElementById('intro').innerHTML = ''
   document.getElementById('board').innerHTML = `
 
       <tr>
@@ -22,6 +21,8 @@ function onStart(){
         <td id="empty"></td>
       </tr>
       `
+
+
       const app = new App;
 }
 
