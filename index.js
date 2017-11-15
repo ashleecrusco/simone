@@ -9,6 +9,8 @@ function restart() {
 }
 
 function onStart(){
+  document.getElementById('title').innerHTML = `<h1 class="large">SIMONE</h1>`
+
   if(document.getElementById('scoreboard')){
   document.getElementById('start').removeAttribute('onclick')
   document.getElementById('start').setAttribute('id', 'restart')

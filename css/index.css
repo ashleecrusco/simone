@@ -67,7 +67,7 @@ td::after {
 }
 
 .footer {
-  padding-top: : 5%;
+  padding-top: : 2%;
   background-color: rgba(152, 0, 235, 0.6);
   width: auto;
   /*height: 3%;
@@ -100,10 +100,15 @@ button {
 
 h1 {
   color: white;
+  padding-bottom: 5%;
 }
 
 .large {
-  font-size: 55px;
+  margin: 3%;
+  font-size: 70px;
+  position:absolute;
+  right:60px;
+  top: -10px;
 }
 
 #scores{
@@ -163,4 +168,12 @@ h1 {
 #center.active {
   background-color: rgba(255, 255, 255, .5);
   border: 5px solid #ffffff;
+}
+
+.instruction {
+  background-image: url('img/instruction-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 90%;
+  height: 50%;
 }

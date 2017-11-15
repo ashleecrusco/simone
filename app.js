@@ -15,6 +15,7 @@ class App {
   onStart() {
     let pattern = []
     let el;
+    document.querySelector('.instruction').removeAttribute('class', 'instruction')
     this.generateAnswer(pattern)
     if (document.getElementById('scoreboard')){
       el = document.getElementById('scoreboard')
@@ -54,7 +55,7 @@ class App {
   }
 
   generateResponse(pattern){
-    let int = (3000+(pattern.length * 1700))
+    let int = (2000+(pattern.length * 1700))
     let response = []
     let string = ''
     document.addEventListener('keydown', (ev) => {
@@ -96,7 +97,7 @@ class App {
     if (decodedPattern.join() === response.join()){
       this.score += 10
       let el = document.getElementById('scoreboard')
-      el.innerHTML = `Scoreboard: ${this.score}`
+      el.innerHTML = `Score: ${this.score}`
       this.generateAnswer(pattern)
     } else {
       this.gameOver()
@@ -104,7 +105,7 @@ class App {
   }
 
   gameOver(){
-    document.getElementById('header').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
+    document.getElementById('title').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
 
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
