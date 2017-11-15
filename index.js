@@ -44,16 +44,20 @@ function menu(){
 }
 
 function intro(){
+  document.getElementById('intro').innerHTML += `<h1>AHHHHHHHHH<button onclick="onStart()"></button></h1>`
+}
 
-  var e = document.body
-  let intro = document.createElement('div')
-  intro.innerHTML = `<button onclick="onStart()">START</button>`
-  e.appendChild(intro)
-  let leader = document.createElement('div')
-  leader.innerHTML = `<button onclick="onLeader()">LEADERBOARD</button>`
-  e.appendChild(leader)
-  let config = document.createElement('div')
-  config.innerHTML = `<button onclick="onConfig()">CONFIGURE</button>`
-  e.appendChild(config)
-
+function checkColor(ev){
+  if(ev === 'ArrowLeft'){
+    return 'red'
+  }
+  if(ev === 'ArrowDown'){
+    return 'blue'
+  }
+  if(ev === 'ArrowRight'){
+    return 'yellow'
+  }
+  if(ev === 'ArrowUp'){
+    return 'green'
+  }
 }

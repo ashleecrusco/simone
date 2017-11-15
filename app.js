@@ -54,10 +54,15 @@ class App {
   generateResponse(pattern){
     let int = (3000+(pattern.length * 1700))
     let response = []
+    let string = ''
     document.addEventListener('keydown', (ev) => {
       if (response.length < pattern.length){
+        let color = checkColor(ev.key)
         response.push(ev.key)
-    }})
+        string += `<span class='circle' style='color: ${color};'></span>`
+        document.getElementById('header').innerHTML = string
+    }
+  })
 
   let self = this
   setTimeout(function(){ self.checkResponse(pattern,response); }, int);
@@ -65,8 +70,9 @@ class App {
 
 
   checkResponse(pattern, response) {
+    document.getElementById('header').innerHTML = ''
     let decodedPattern = []
-    
+
     pattern.forEach((choice) => {
       if(choice === 'red'){
         decodedPattern.push('ArrowLeft')
@@ -90,6 +96,7 @@ class App {
   }
 
   gameOver(){
+    document.getElementById('header').innerHTML = `<h1 class="large">YOU LOSE!</h1>`
     console.log("you lose!!!")
   }
 
