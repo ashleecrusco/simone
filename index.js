@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function onStart(){
-  document.getElementById('intro').innerHTML = ''
+  // document.getElementById('intro').innerHTML = ''
   document.getElementById('board').innerHTML = `
 
       <tr>
@@ -25,8 +25,26 @@ function onStart(){
       const app = new App;
 }
 
+function onLeader(){
+  console.log("Get Leaderboard")
+}
+
+function onConfig(){
+  console.log("Get Configuration")
+}
+
 function intro(){
-  document.getElementById('intro').innerHTML += `<h1>AHHHHHHHHH<button onclick="onStart()"></button></h1>`
+
+var e = document.querySelector('div.container')
+let introduction = document.createElement('div')
+introduction.innerHTML = `<button onclick="onStart()">START</button>`
+e.appendChild(introduction)
+let leader = document.createElement('div')
+leader.innerHTML = `<button onclick="onLeader()">LEADERBOARD</button>`
+e.appendChild(leader)
+let config = document.createElement('div')
+config.innerHTML = `<button onclick="onConfig()">CONFIGURE</button>`
+e.appendChild(config)
 }
 
 function checkColor(ev){
