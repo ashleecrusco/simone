@@ -1,5 +1,7 @@
 let store = {apps: []}
 let id = 0
+let multiplier = 1;
+
 class App {
   constructor(){
   this.score = 0
@@ -9,6 +11,8 @@ class App {
 
 
   onStart() {
+    this.config_id = document.getElementById('configChoice').value
+    checkConfig(this)
     let pattern = []
     let el;
     if(document.querySelector('.instruction')){
@@ -29,6 +33,8 @@ class App {
     el.style.color = 'white'
   }
 
+
+
   generateAnswer(pattern){
     setTimeout(function () {
       document.getElementById('center').innerHTML = ""
@@ -37,17 +43,20 @@ class App {
     let index = Math.floor(Math.random() * 4)
     let choice = arr[index]
     pattern.push(choice)
+
+
+
     function showPattern(i){
       if (i < pattern.length){
        setTimeout(function(){
          change(pattern[i])
          play(pattern[i])
-       },500);
+       },500 * multiplier);
         setTimeout(function(){
          changeBack(pattern[i])
          i++;
          showPattern(i);
-       },1000);
+       },1000 * multiplier);
      }else {
        document.getElementById('center').removeAttribute('class', 'active')
      }
@@ -59,7 +68,7 @@ class App {
   }
 
   generateResponse(pattern){
-    let int = (2000+(pattern.length * 1700))
+    let int = (2000 * multiplier +(pattern.length * 1700 * multiplier))
     let response = []
     let string = ''
     document.addEventListener('keydown', something)
@@ -196,4 +205,14 @@ function change(element){
 
 function changeBack(element){
   document.getElementById(element).className = 'choice'
+}
+
+
+
+function checkConfig(self){
+  if (self.config_id === "2"){
+    multiplier = .75
+  } else if (self.config_id === "3") {
+    multiplier = .5
+  }
 }
