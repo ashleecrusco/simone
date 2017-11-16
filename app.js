@@ -114,8 +114,9 @@ class App {
   }
 
   gameOver(){
-
-    document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1><form><input value="" placeholder="Name"></input></form>`
+    if(document.getElementById('leaderboard').innerHTML === "") {
+      document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1><form><input value="" placeholder="Name"></input></form>`
+    }
 
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
@@ -125,7 +126,7 @@ class App {
     this.name = 'ashlee'
     this.config = 'easy'
     store.apps.push(this)
-    this.sendData()
+    // this.sendData()
   }
 
   sendData(){
