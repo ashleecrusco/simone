@@ -114,17 +114,31 @@ class App {
 
   gameOver(){
 
-    document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1><form><input value="" placeholder="Name"></input></form>`
+    document.getElementById('title').innerHTML = `
+    <h1 class="large blink">YOU LOSE!</h1>
+    <form><input type='submit' id="name" value="a" placeholder="Name"></input></form>
+    `
 
+    debugger
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
 
-    let table = document.getElementById('board')
 
-    this.name = 'ashlee'
-    this.config = 'easy'
-    store.apps.push(this)
-    this.sendData()
+    let table = document.getElementById('board')
+    let config = document.getElementById('configChoice').value
+
+    this.config_id = config
+
+    let self = this
+
+
+    document.getElementById('title').addEventListener('submit', (ev) => {
+      let name = document.getElementById('name').value
+
+      self.name = name
+      store.apps.push(self)
+      this.sendData()
+    })
   }
 
   sendData(){
