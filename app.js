@@ -32,7 +32,7 @@ class App {
     el.style.color = 'white'
   }
 
-  generateAnswer(pattern){
+ generateAnswer(pattern){
     setTimeout(function () {
       document.getElementById('center').innerHTML = ""
     }, 500)
@@ -57,6 +57,7 @@ class App {
     }
     document.getElementById('center').setAttribute('class', 'active')
     showPattern(0)
+
     Promise.resolve().then(this.generateResponse(pattern))
   }
 
