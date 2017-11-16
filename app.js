@@ -144,7 +144,7 @@ class App {
   }
   sendData(){
     let data = this
-    fetch(`http://localhost:3000/api/v1/configs/${this.config_id}/apps`,
+    fetch(`http://simone-api.herokuapp.com/api/v1/api/v1/configs/${this.config_id}/apps`,
   {
     method: 'POST',
     // mode: 'no-cors',

@@ -70,9 +70,9 @@ function onLeader(){
 }
 
 function fetchAllBoards() {
-  fetch(`http://localhost:3000/api/v1/configs/1/apps`).then(res => res.json()).then(json => renderEasy(json));
-  fetch(`http://localhost:3000/api/v1/configs/2/apps`).then(res => res.json()).then(json => renderMed(json));
-  fetch(`http://localhost:3000/api/v1/configs/3/apps`).then(res => res.json()).then(json => renderHard(json));
+  fetch(`http://simone-api.herokuapp.com/api/v1/configs/1/apps`).then(res => res.json()).then(json => renderEasy(json));
+  fetch(`http://simone-api.herokuapp.com/api/v1/configs/2/apps`).then(res => res.json()).then(json => renderMed(json));
+  fetch(`http://simone-api.herokuapp.com/api/v1/configs/3/apps`).then(res => res.json()).then(json => renderHard(json));
 }
 
 function renderEasy(data) {
