@@ -115,10 +115,16 @@ class App {
 
   gameOver(){
 
+    if(document.getElementById('leaderboard').innerHTML === "") {
+      document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1><form><input value="" placeholder="Name"></input></form>`
+    }
+
+
     document.getElementById('title').innerHTML = `
     <h1 class="large blink">YOU LOSE!</h1>
     <form><input type='submit' id="name" value="a" placeholder="Name"></input></form>
     `
+
 
     debugger
     let gameOverAudio = document.getElementById('gameOverAudio');
@@ -133,6 +139,7 @@ class App {
     let self = this
 
 
+
     document.getElementById('title').addEventListener('submit', (ev) => {
       let name = document.getElementById('name').value
 
@@ -140,6 +147,7 @@ class App {
       store.apps.push(self)
       this.sendData()
     })
+
   }
 
   sendData(){
