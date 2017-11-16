@@ -136,6 +136,11 @@ table.tg  {
 p{
   color: white;
 }
+
+.fade {
+  opacity: 0.5;
+}
+
 button, select, input {
   display: inline-block;
   padding: 7px;

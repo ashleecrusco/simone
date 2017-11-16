@@ -126,6 +126,10 @@ class App {
   }
 
   gameOver(){
+    document.getElementById('start').innerText = "HOME"
+    document.getElementById('configChoice').disabled = true
+    document.getElementById('configChoice').className = "fade"
+    document.getElementById('board').innerHTML = ""
     if(document.getElementById('leaderboard').innerHTML === "") {
       document.getElementById('title').innerHTML = `
       <h1 class="large blink">YOU LOSE!</h1>
