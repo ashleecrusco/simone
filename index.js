@@ -8,7 +8,7 @@ function restart() {
   location.reload()
 }
 
-function onStart(){
+function onStart(config){
   document.getElementById('title').innerHTML = `<h1 class="large">SIMONE</h1>`
   if(document.getElementById('leaderboard')) {
     document.getElementById('leaderboard').innerHTML = ``
