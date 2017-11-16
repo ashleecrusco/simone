@@ -122,11 +122,12 @@ class App {
 
     document.getElementById('title').innerHTML = `
     <h1 class="large blink">YOU LOSE!</h1>
-    <form><input type='submit' id="name" value="a" placeholder="Name"></input></form>
+    <form><input id="name" value="" placeholder="Name"></input></form>
+    <input id="nameSubmit" type="submit" value="Submit">
     `
 
 
-    debugger
+
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
 
@@ -140,11 +141,14 @@ class App {
 
 
 
-    document.getElementById('title').addEventListener('submit', (ev) => {
-      let name = document.getElementById('name').value
+    document.getElementById('nameSubmit').addEventListener('click', (ev) => {
 
+      let name = document.getElementById('name').value
+      ev.preventDefault()
       self.name = name
+      debugger
       store.apps.push(self)
+
       this.sendData()
     })
 
