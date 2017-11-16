@@ -15,8 +15,9 @@ class App {
   onStart() {
     let pattern = []
     let el;
+    if(document.querySelector('.instruction')){
     document.querySelector('.instruction').removeAttribute('class', 'instruction')
-
+  }
 
     this.generateAnswer(pattern)
 
@@ -32,7 +33,7 @@ class App {
     el.style.color = 'white'
   }
 
- generateAnswer(pattern){
+  generateAnswer(pattern){
     setTimeout(function () {
       document.getElementById('center').innerHTML = ""
     }, 500)
@@ -79,8 +80,8 @@ class App {
         document.getElementById('header').innerHTML = string
       }
   })
-  let self = this
-  setTimeout(function(){ self.checkResponse(pattern,response); }, int);
+    let self = this
+    setTimeout(function(){ self.checkResponse(pattern,response); }, int);
   }
 
   checkResponse(pattern, response) {
@@ -157,8 +158,6 @@ class App {
     // this.fetchLeaderboard()
 
   }
-
-
 
   fetchLeaderboard(){
     // fetch('http://localhost:3000/api/v1/apps')

@@ -10,11 +10,13 @@ function restart() {
 
 function onStart(config){
   document.getElementById('title').innerHTML = `<h1 class="large">SIMONE</h1>`
-
+  if(document.getElementById('leaderboard')) {
+    document.getElementById('leaderboard').innerHTML = ``
+  }
   if(document.getElementById('scoreboard')){
-  document.getElementById('start').removeAttribute('onclick')
-  document.getElementById('start').setAttribute('id', 'restart')
-  document.getElementById('restart').setAttribute('onclick', restart())
+    document.getElementById('start').removeAttribute('onclick')
+    document.getElementById('start').setAttribute('id', 'restart')
+    document.getElementById('restart').setAttribute('onclick', restart())
 }
   document.getElementById('board').innerHTML = `
 
@@ -39,9 +41,7 @@ function onStart(config){
       const app = new App;
 }
 
-function onLeader(){
-  console.log("Get Leaderboard")
-}
+
 
 function onConfig(){
   console.log("Get Configuration")
