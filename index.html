@@ -8,71 +8,41 @@
   </head>
   <body>
     <div class="container">
-      <div id="title">
 
-      </div>
-    <div id="header">
+      <div id="title"></div>
 
-    </div>
+      <div id="header"></div>
 
 
-      <table id="board" class="instruction">
+      <table id="board" class="instruction"></table>
 
-          <!-- <tr>
-          <td id="empty"></td>
-          <td id="green" class="choice"></td>
-          <td id="empty"></td>
-            </tr>
-          <tr>
-          <td id="red" class="choice"></td>
-          <td id="center"></td>
-          <td id="yellow" class="choice"></td>
-            </tr>
-          <tr>
-          <td id="empty"></td>
-          <td id="blue" class="choice"></td>
-          <td id="empty"></td>
-            </tr> -->
-          </table>
-          <div id="buttons">
-            <button onclick="onStart()" id="start">START</button>
-            <button onclick="onLeader()">LEADERBOARD</button>
-            <button onclick="onConfig()">CONFIGURE</button>
-          </div>
-          <!-- <div id="intro" >
--->
-          </div>
-
-    <!-- <div class="footer">
-
-      <div id="quit">
-        <button type="button" name="button">Quit</button>
-      </div>
-
-      <div id="scores">
-        <p>Current Score</p>
-        <p>High Score</p>
+      <div id="buttons">
+        <button onclick="onStart()" id="start">START</button>
+        <button onclick="onLeader()">LEADERBOARD</button>
+        <button onclick="onConfig()">CONFIGURE</button>
       </div>
 
     </div>
-    </div> -->
-    <audio id="redAudio">
-    <source src="audio/button-select-1.wav" type="audio/wav"></source>
+    </body>
+    <div id="audio" style="display: hidden;">
+      <audio id="redAudio">
+      <source src="audio/button-select-1.wav" type="audio/wav"></source>
 
-    <audio id="blueAudio">
-    <source src="audio/button-select-2.wav" type="audio/wav"></source>
+      <audio id="blueAudio">
+      <source src="audio/button-select-2.wav" type="audio/wav"></source>
 
-    <audio id="yellowAudio">
-    <source src="audio/button-select-3.wav" type="audio/wav"></source>
+      <audio id="yellowAudio">
+      <source src="audio/button-select-3.wav" type="audio/wav"></source>
 
-    <audio id="greenAudio">
-    <source src="audio/button-select-4.wav" type="audio/wav"></source>
+      <audio id="greenAudio">
+      <source src="audio/button-select-4.wav" type="audio/wav"></source>
 
-    <audio id="introAudio">
-    <source src="audio/intro-pt-1.wav" type="audio/mpeg"></source>
-    <audio id="gameOverAudio">
-    <source src="audio/game-over.wav" type="audio/mpeg"></source>
+      <audio id="introAudio">
+      <source src="audio/intro-pt-1.wav" type="audio/mpeg"></source>
+      <audio id="gameOverAudio">
+      <source src="audio/game-over.wav" type="audio/mpeg"></source>
+    </div>
   <script type="text/javascript" src="index.js"></script>
   <script type="text/javascript" src="app.js"></script>
-  </body>
+
 </html>

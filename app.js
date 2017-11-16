@@ -16,7 +16,10 @@ class App {
     let pattern = []
     let el;
     document.querySelector('.instruction').removeAttribute('class', 'instruction')
+
+
     this.generateAnswer(pattern)
+
     if (document.getElementById('scoreboard')){
       el = document.getElementById('scoreboard')
     } else {
@@ -30,6 +33,9 @@ class App {
   }
 
   generateAnswer(pattern){
+    setTimeout(function () {
+      document.getElementById('center').innerHTML = ""
+    }, 500)
     let arr = ['green','red','yellow','blue']
     let index = Math.floor(Math.random() * 4)
     let choice = arr[index]
@@ -96,6 +102,7 @@ class App {
 
     if (decodedPattern.join() === response.join()){
       this.score += 10
+      document.getElementById('center').innerHTML = "<h1 class='center'>+10</h1>"
       let el = document.getElementById('scoreboard')
       el.innerHTML = `Score: ${this.score}`
       this.generateAnswer(pattern)
@@ -106,14 +113,14 @@ class App {
 
   gameOver(){
 
-    document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1>`
+    document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1><form><input value="" placeholder="Name"></input></form>`
 
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
 
     let table = document.getElementById('board')
 
-    this.name = 'nick'
+    this.name = 'ashlee'
     this.config = 'easy'
     store.apps.push(this)
     this.sendData()

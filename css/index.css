@@ -4,11 +4,12 @@ body {
   padding: 2%;
   font-family:'VT323';
   font-size: 38px;
+  margin: 0px 0px 0px 0px;
 }
 
 table {
   margin: 0 auto;
-  width: 40%;
+  width: 480px;
   padding: 2%;
   margin-bottom: 1%;
 }
@@ -24,6 +25,15 @@ td::after {
   content: '';
   display: block;
   margin-top: 100%;
+}
+
+.center {
+  vertical-align: middle;
+  text-align: center;
+  position: absolute;
+  /*width: 100%;*/
+  margin: 15px;
+  color: black;
 }
 
 .container {
@@ -174,7 +184,7 @@ h1 {
   background-image: url('img/instruction-bg.jpg');
   background-position: center;
   background-size: cover;
-  width: 90%;
+  width: 100%;
   height: 50%;
 }
 
