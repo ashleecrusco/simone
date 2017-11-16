@@ -4,13 +4,9 @@ class App {
   constructor(){
   this.score = 0
   this.name = ''
-  this.addEventListeners()
   this.onStart()
   }
 
-  addEventListeners(){
-
-  }
 
   onStart() {
     let pattern = []
