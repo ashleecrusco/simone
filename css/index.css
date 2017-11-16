@@ -133,7 +133,10 @@ table.tg  {
   width: auto;
 }
 
-button, select {
+p{
+  color: white;
+}
+button, select, input {
   display: inline-block;
   padding: 7px;
   margin: 7px;
@@ -149,6 +152,9 @@ button, select {
   color: black;
 }
 
+#name {
+  width: 250px;
+}
 
 h1 {
   color: white;

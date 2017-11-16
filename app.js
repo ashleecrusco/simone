@@ -129,7 +129,7 @@ class App {
     if(document.getElementById('leaderboard').innerHTML === "") {
       document.getElementById('title').innerHTML = `
       <h1 class="large blink">YOU LOSE!</h1>
-      <form id="nameSubmit"><input id="name" value="" placeholder="Name"></input>
+      <form id="nameSubmit"><p>Enter your initials for the leaderboard: </p><input id="name" value="" placeholder="Name"></input>
       <input type="submit" value="Submit"></form>
       `
     }
@@ -206,8 +206,6 @@ function change(element){
 function changeBack(element){
   document.getElementById(element).className = 'choice'
 }
-
-
 
 function checkConfig(self){
   if (self.config_id === "2"){
