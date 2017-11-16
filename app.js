@@ -66,11 +66,14 @@ class App {
     let int = (2000+(pattern.length * 1700))
     let response = []
     let string = ''
-    document.addEventListener('keydown', (ev) => {
+    document.addEventListener('keydown', something)
+
+    function something() {
+
       if (response.length < pattern.length){
-        let color = checkColor(ev.key)
-        ev.preventDefault()
-        response.push(ev.key)
+        let color = checkColor(event.key)
+        event.preventDefault()
+        response.push(event.key)
         if (color === "x"){
           string += `<span class='x' style='color: red;'></span>`
         } else {
@@ -79,12 +82,16 @@ class App {
         }
         document.getElementById('header').innerHTML = string
       }
-  })
+    }
+
+
     let self = this
-    setTimeout(function(){ self.checkResponse(pattern,response); }, int);
+    setTimeout(function(){ self.checkResponse(pattern,response, something); }, int);
+
   }
 
-  checkResponse(pattern, response) {
+  checkResponse(pattern, response, something) {
+    document.removeEventListener('keydown', something)
     document.getElementById('header').innerHTML = ''
     let decodedPattern = []
     pattern.forEach((choice) => {
@@ -114,49 +121,34 @@ class App {
   }
 
   gameOver(){
-
     if(document.getElementById('leaderboard').innerHTML === "") {
-      document.getElementById('title').innerHTML = `<h1 class="large blink">YOU LOSE!</h1><form><input value="" placeholder="Name"></input></form>`
+      document.getElementById('title').innerHTML = `
+      <h1 class="large blink">YOU LOSE!</h1>
+      <form id="nameSubmit"><input id="name" value="" placeholder="Name"></input>
+      <input type="submit" value="Submit"></form>
+      `
     }
-
-
-    document.getElementById('title').innerHTML = `
-    <h1 class="large blink">YOU LOSE!</h1>
-    <form><input id="name" value="" placeholder="Name"></input></form>
-    <input id="nameSubmit" type="submit" value="Submit">
-    `
-
-
 
     let gameOverAudio = document.getElementById('gameOverAudio');
     gameOverAudio.play();
 
-
     let table = document.getElementById('board')
     let config = document.getElementById('configChoice').value
-
+    let self = this
     this.config_id = config
 
-    let self = this
-
-
-
-    document.getElementById('nameSubmit').addEventListener('click', (ev) => {
-
+    document.getElementById('nameSubmit').addEventListener('submit', (ev) => {
       let name = document.getElementById('name').value
+      document.getElementById('name').value = ""
       ev.preventDefault()
-      self.name = name
-      debugger
+      self.name = name.toUpperCase().slice(0,3)
       store.apps.push(self)
-
-      this.sendData()
+      self.sendData()
     })
-
   }
-
   sendData(){
     let data = this
-    fetch('http://localhost:3000/api/v1/apps',
+    fetch(`http://localhost:3000/api/v1/configs/${this.config_id}/apps`,
   {
     method: 'POST',
     // mode: 'no-cors',
@@ -166,22 +158,18 @@ class App {
       "Accept": 'application/json'
     }
   })
-  .then(res => console.log(res));
+  .then(res => doStuff());
     // this.fetchLeaderboard()
 
   }
 
-  fetchLeaderboard(){
-    // fetch('http://localhost:3000/api/v1/apps')
-    // .then(res => res.json())
-    // .then(json => console.log(json))
-    // this.displayLeaderboard()
-  }
+}
 
-  displayLeaderboard(){
-    //displaying the leaderboard
-  }
 
+// Outside class
+
+function doStuff() {
+  onLeader()
 }
 
 function play(color) {
