@@ -233,6 +233,16 @@ h1 {
   border: 5px solid #ffffff;
 }
 
+#center.es {
+  background-image: url('img/es-1.jpg');
+  border: 5px solid #ffffff;
+}
+
+#center.cat {
+  background-image: url('img/cat.gif');
+  border: 5px solid #ffffff;
+}
+
 .instruction {
   background-image: url('img/instruction-bg.jpg');
   background-position: center;

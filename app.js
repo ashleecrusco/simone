@@ -58,10 +58,10 @@ class App {
          showPattern(i);
        },1000 * multiplier);
      }else {
-       document.getElementById('center').removeAttribute('class', 'active')
+       document.getElementById('center').removeAttribute('class', `${specialClass}`)
      }
     }
-    document.getElementById('center').setAttribute('class', 'active')
+    document.getElementById('center').setAttribute('class', `${specialClass}`)
     showPattern(0)
 
     Promise.resolve().then(this.generateResponse(pattern))
@@ -116,7 +116,17 @@ class App {
 
     if (decodedPattern.join() === response.join()){
       this.score += 10
-      document.getElementById('center').innerHTML = "<h1 class='center'>+10</h1>"
+
+      if(special === "es"){
+        document.getElementById('center').innerHTML = "<h1 class='center'></h1>"
+      }
+      if(special === "cat"){
+        document.getElementById('center').innerHTML = "<h1 class='center'></h1>"
+      }
+      if(special === "reg"){
+        document.getElementById('center').innerHTML = "<h1 class='center'>+10</h1>"
+      }
+
       let el = document.getElementById('scoreboard')
       el.innerHTML = `Score: ${this.score}`
       this.generateAnswer(pattern)

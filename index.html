@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Simone</title>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
   </head>
@@ -38,6 +37,8 @@
 
     </div>
     </body>
+    <audio id="introAudio">
+    <source src="audio/intro-pt-1.wav" type="audio/mpeg"></source></audio>
     <div id="audio" style="display: hidden;">
       <audio id="redAudio">
       <source src="audio/button-select-1.wav" type="audio/wav"></source>
@@ -51,13 +52,12 @@
       <audio id="greenAudio">
       <source src="audio/button-select-4.wav" type="audio/wav"></source>
 
-      <audio id="introAudio">
-      <source src="audio/intro-pt-1.wav" type="audio/mpeg"></source>
       <audio id="gameOverAudio">
       <source src="audio/game-over.wav" type="audio/mpeg"></source>
     </div>
   <script type="text/javascript" src="index.js"></script>
   <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript" src="leaderboard.js"></script>
+  <script type="text/javascript" src="special.js"></script>
 
 </html>
