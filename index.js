@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // intro();
+  esVersion()
+  catVersion()
   let introAudio = document.getElementById('introAudio');
   introAudio.play();
 });
@@ -47,18 +49,6 @@ function onConfig(){
   console.log("Get Configuration")
 }
 
-// function intro(){
-//   var e = document.querySelector('div.container')
-//   let introduction = document.createElement('div')
-//   introduction.innerHTML = `<button onclick="onStart()" id="start">START</button>`
-//   e.appendChild(introduction)
-//   let leader = document.createElement('div')
-//   leader.innerHTML = `<button onclick="onLeader()">LEADERBOARD</button>`
-//   e.appendChild(leader)
-//   let config = document.createElement('div')
-//   config.innerHTML = `<button onclick="onConfig()">CONFIGURE</button>`
-//   e.appendChild(config)
-// }
 
 function checkColor(ev){
   if(ev === 'ArrowLeft'){
